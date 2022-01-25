@@ -110,7 +110,7 @@ ansible all --list
 ansible all -m ping  --> we must receive ping / pong in green
 ```
 
-Configure VIM Editor purpose .To Avoid intend issues
+13. Configure VIM Editor purpose .To Avoid intend issues
 
 you must do this in ansible server only
 
