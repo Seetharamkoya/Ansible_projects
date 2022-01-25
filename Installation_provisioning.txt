@@ -1,5 +1,23 @@
 ### Installation and configuration ssh connection b/w master node and client nodes.
 
+Step 1 : Pre-requisites  - in all 3 machines
+Step 2 : Install vim package in all 3 machines
+Step 3:  DNS Setup (or) Ensure you have all 3 machines DNS is working	
+Step 4:  SSH connection need to be enabled if you are using cloud machines
+Step 5:  Create user called ansible in all machines
+Step 6:  Login to all servers and enable sudo permission for ansible user with no password
+Step 7:  Login as ansible user into ansible server 
+Step 8:  Create ssh keys in ansible server
+Step 9:  Copy SSH keys from ansible server to clients
+Step 10:  Test the ssh keys are working or not ? how ?.
+Step 11:  Install Ansible in Ansible server
+Step 12:  Create your environment directories.
+Step 13:  Test your ansible environment is correctly configured or not ?
+Step 14:  Test your client servers connectivity from ansible ?
+Step 15:  Configure VIM Editor purpose .To Avoid intend issues
+
+
+
 1. To install epel-release repo in all three machines
 
 ```
@@ -92,5 +110,21 @@ ansible all --list
 ansible all -m ping  --> we must receive ping / pong in green
 ```
 
+Configure VIM Editor purpose .To Avoid intend issues
 
+you must do this in ansible server only
+
+go to /home/ansible/ home directory
+
+vim .vimrc
+
+set ai
+set tabstop=2
+set expandtab
+
+save this file .Then logoff and login .
+
+Or 
+
+source ~/.vimrc
 
