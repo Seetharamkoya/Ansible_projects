@@ -92,3 +92,5 @@ ansible all --list
 ansible all -m ping  --> we must receive ping / pong in green
 ```
 
+
+
