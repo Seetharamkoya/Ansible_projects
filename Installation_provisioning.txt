@@ -92,10 +92,10 @@ ssh-copy-id user@IP
 sudo yum install ansible -y
 ```
 
-10. update the host file in the ansible master with node ips/DNS
+10. Test your ansible environment is correctly configured or not 
     
     ```
-    sudo nano /etc/ansible/hosts
+    create sep env directory with .cfg and hosts files for each environment
     ```
 
 11. Test your ansible environment is correctly configured
