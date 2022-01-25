@@ -1,0 +1,94 @@
+### Installation and configuration ssh connection b/w master node and client nodes.
+
+1. To install epel-release repo in all three machines
+
+```
+yum install epel-release -y
+
+```
+
+2. SSH connection need to be enabled if you are using cloud machines in all 3 machines go to /etc/ssh/sshd_config file using vim editor.
+
+``` 
+sudo nano /etc/ssh/sshd_config
+
+```
+
+```
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication yes --> this line should be un commented
+#PermitEmptyPasswords no
+#PasswordAuthentication no --> this line should be commented
+```
+
+3. Restart the sshd service
+
+```
+systemctl restart sshd
+
+```
+
+
+4. Create a new user&password in all the three machines
+
+
+
+```
+useradd xxxxx
+passwd xxxxxx
+
+```
+
+5. Login to all servers/nodes and enable sudo permission for ansible user with no password
+
+
+```
+sudo nano /etc/sudoers
+````
+
+````
+root ALL=(ALL)       NOPASSWD:       ALL
+
+````
+
+6. Login as user into each machine
+
+``` 
+sudo su - xxxx
+````
+7. Create ssh keys in ansible server/mster node
+
+```
+ssh-keygen
+```
+
+8. Copy SSH keys from ansible server to clients
+
+```
+ssh-copy-id user@IP
+```
+
+9.  Install Ansible in Ansible server
+
+```
+sudo yum install ansible -y
+```
+
+10. update the host file in the ansible master with node ips/DNS
+    
+    ```
+    sudo nano /etc/ansible/hosts
+    ```
+
+11. Test your ansible environment is correctly configured
+
+```
+ansible all --list
+```
+
+12. Test your client servers connectivity from ansible
+
+```
+ansible all -m ping  --> we must receive ping / pong in green
+```
+
