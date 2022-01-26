@@ -1,3 +1,2 @@
 # Ansible_projects
-Hobby_projects
-Daily, I update my Hands of Playbooks 
+Hobby_projects, I update my Hands on plays and Playbooks 
