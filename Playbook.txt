@@ -1,3 +1,6 @@
+This play books Contains Package installations, starting the service, enable the service, user abd group modules, get_url downloads
+
+
 *******************************************************************************************************************
 Step 1:  Sample Playbook 1
 Step 2:  Sample Playbook 2
