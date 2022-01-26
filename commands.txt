@@ -1,0 +1,97 @@
+Step 1 : ansible-doc 
+
+Step 2: .yaml or .yml files
+
+Step 3 : How to construct playbook
+
+Step 4:  How to ensure syntax issues in playbook before you execute playbooks
+
+Step 5:  How to see detailed output while playbook getting executed
+
+Step 6:  Sample Playbook 1
+
+Step 7:  Sample Playbook 2
+
+Step 8:  Sample Playbook 3
+
+Step 9:  httpd installation playbook and error (privilege_escalation)
+
+Step 10:  copy paste playbooks from internet - How to avoid intending issues
+
+
+step-1
+
+> ansible-doc -l
+
+which is used for help to understand the modules and description
+
+> ansible-doc -l | wc -l
+
+To see how mamny modules
+
+> ansible-doc -l | grep package
+
+package related modules
+
+> ansible-doc yum
+
+Man page with examples playbook
+
+step 2
+
+vim filename.yml or yaml in the environment directory
+
+step 3
+Constructing the simple playbook
+
+---
+- name: I AM GOING TO INSTALL SOME PACAKGES
+  hosts: all
+  tasks:
+   - name: install httpd
+     yum:
+      name: httpd
+      state: latest
+
+step 4
+To check the syntax check
+> ansible-playbook filename.yaml --synatx-check
+
+step5 
+How to execude the playbook
+> ansible-playbook filename.yml -C
+
+to simulate the response here before, going to the actual environment.
+
+step6 
+
+> ansible-playbook filename.yml -C -vvvv
+
+
+detail verbose output 
+
+step 7
+
+some modules default error we get
+
+open multiple windows and check the node1
+tailf /var/logs/messages
+
+at node2 
+watch -n 1 yum list httpd
+
+step 8
+
+global configaration file
+cat /etc/ansible/ansible.cfg
+
+> privallage esculation to enable and install using the  ansible user in the global.
+
+
+[privilege_escalation]
+#become=True
+#become_method=sudo
+#become_user=root
+#become_ask_pass=False
+
+> we need to copy this into the our dev environment of ansible.cfg file.
