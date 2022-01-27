@@ -1,0 +1,105 @@
+This play books Contains Package installations, starting the service, enable the service, user abd group modules, get_url downloads
+
+
+*******************************************************************************************************************
+Step 1:  Sample Playbook 1
+Step 2:  Sample Playbook 2
+Step 3:  Sample Playbook 3
+Step 4:  Sample Playbook 4
+Step 5:  Sample Playbook 5
+Step 6:  Sample Playbook 6
+*******************************************************************************************************************
+Step 1:  Sample Playbook 1
+
+
+- name: Install a list of packages
+  yum:
+    name:
+      - httpd
+      - unzip
+    state: present
+*******************************************************************************************************************
+Step 2:  Sample Playbook 2 - 2 play or 2 tasks
+
+vim httpd.yaml
+---
+- name: install httpd
+  hosts: all
+  tasks:
+   - name: install httpd
+     yum:
+      name: httpd
+      state: latest
+   - name: restart web service
+     service:
+      name: httpd
+      state: restarted
+	  
+*******************************************************************************************************************
+Step 3:  Sample Playbook 3 -  4 play or 4 tasks
+
+vim httpd.yaml
+---
+- name: install httpd
+  hosts: all
+  tasks:
+   - name: install httpd
+     yum:
+      name: httpd
+      state: latest
+   - name: restart web service
+     service:
+      name: httpd
+      state: restarted
+   - name: install vsftpd
+     yum:
+      name: vsftpd
+      state: latest
+   - name: restart web service
+     service:
+      name: vsftpd
+      state: restarted
+
+*******************************************************************************************************************
+Step 4:  Sample Playbook 4
+
+ansible module - Group
+
+*******************************************************************************************************************
+
+Step 5:  Sample Playbook 5
+
+
+ansible module - user
+
+*******************************************************************************************************************
+Step 6:  Sample Playbook 6
+
+
+---
+- name: httpd install
+  hosts: node1,node2
+  tasks:
+   - name: httpd install
+     yum:
+      name: httpd
+      state: latest
+   - name: httpd service start
+     service:
+      name: httpd
+      state: started
+   - name: enable the service
+     service:
+      name: httpd
+      enabled: yes
+   - name: download the httpd.conf
+     get_url:
+      url: https://pepa.holla.cz/wp-content/uploads/2016/12/Ansible.pdf
+      dest: /var/www/html/ansible.pdf
+      mode: 0644
+      
+      
+      
+   access public ip 
+   
+   http://35.226.175.159/Ansible.pdf
