@@ -90,7 +90,7 @@ step 8
 global configaration file
 cat /etc/ansible/ansible.cfg
 
-> privallage esculation to enable and install using the  ansible user in the global.
+> privallage esculation to enable and install by the user in the dev environment we need to copy the "privelige" from cat /etc/ansible/ansible_cfg" to ansible.cfg in dev.
 
 
 [privilege_escalation]
