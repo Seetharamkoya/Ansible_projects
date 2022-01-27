@@ -117,4 +117,3 @@ Install all the plays into all the servers which are listed out in the inventory
         name: httpd
         state: restarted
       when: inventory_hostname in groups ['prod']
-```
