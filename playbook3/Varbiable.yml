@@ -1,0 +1,17 @@
+---
+- name: installing packages
+  hosts: all
+  vars:
+   - websoft: httpd
+  tasks:
+   - name: install {{ websoft }}
+     yum:
+      name: "{{ websoft }}"
+      state: latest
+   - name: start the {{ websoft }} service
+     service:
+      name: "{{ websoft }}"
+      state: restarted
+
+
+##local variable
