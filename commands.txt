@@ -1,3 +1,8 @@
+This playbook/commsnds file contains the commands for "Man" pages Construct .yaml ot .yml files and Configurations of the "different environments" in the ansible server.
+list of commands for the checking the playbooks and  "PRIVILEGE_ESCULATION TO RUN THE PLAYBOOKS"
+
+
+
 Step 1 : ansible-doc 
 
 Step 2: .yaml or .yml files
@@ -85,7 +90,7 @@ step 8
 global configaration file
 cat /etc/ansible/ansible.cfg
 
-> privallage esculation to enable and install using the  ansible user in the global.
+> privallage esculation to enable and install by the user in the dev environment we need to copy the "privelige" from cat /etc/ansible/ansible_cfg" to ansible.cfg in dev.
 
 
 [privilege_escalation]
